@@ -201,13 +201,17 @@ void hillClimbing() {
 			queens[x]=y;
 		}	
 	}
+	printf ("Final state is");
 	printState();
 }
 
 /*************************************************************/
 
 void simulatedAnnealing() {
-	printf("Implement the routine simulatedAnnealing() yourself!!\n");
+  printf("Implement the routine simulatedAnnealing() yourself!!\n");
+  
+  printf ("Final state is");
+  printState();
 }
 
 
