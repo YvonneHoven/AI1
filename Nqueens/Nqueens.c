@@ -179,11 +179,11 @@ void randomSearch() {
 
 void hillClimbing() {
 	int min=evaluateState();
-	int x,y,z,change=1;
+	int x,y,z,change=1, i, j;
 	while(change!=0){
 		change=0;
-		for(int i=0;i<nqueens;i++){
-			for(int j=0;j<nqueens;j++){
+		for(i=0;i<nqueens;i++){
+			for(j=0;j<nqueens;j++){
 				if(canMoveTo(i,j)){
 					z=queens[i];
 					queens[i]=j;
