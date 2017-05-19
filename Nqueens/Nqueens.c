@@ -154,7 +154,7 @@ void randomSearch() {
 	while (evaluateState() != optimum) {
 		printf("iteration %d: evaluation=%d\n", iter++, evaluateState());
 		if (iter == MAXITER) break;  /* give up */
-									 /* generate a (new) random state: for each queen do ...*/
+		/* generate a (new) random state: for each queen do ...*/
 		for (queen = 0; queen < nqueens; queen++) {
 			int pos, newpos;
 			/* position (=column) of queen */
@@ -237,7 +237,7 @@ int main(int argc, char *argv[]) {
 	case 2: hillClimbing();       break;
 	case 3: simulatedAnnealing(); break;
 	}
-	printf("evaluation: %d",evaluateState());
+	printf("evaluation: %d\n",evaluateState());
 
 	return 0;
 }
