@@ -176,8 +176,33 @@ void randomSearch() {
 
 /*************************************************************/
 
+
 void hillClimbing() {
-	printf("Implement the routine hillClimbing() yourself!!\n");
+	int min=evaluateState();
+	int x,y,z,change;
+	memcpy(current,queens,nqueens);
+	while(change!=0){
+		change=0;
+		for(int i=0;i<nqueens;i++){
+			for(int j=0;j<nqueens;j++){
+				if(canMoveTo(i,j)){
+					z=queens[i];
+					queens[i]=j;
+					if(evaluateState<min){
+						memcpy(queens,current,nqueens);
+			}
+					else{
+						change++;
+						min=evaluateState();
+						x=i;
+						y=j;
+					}
+					queens[i]=z;
+				}	
+			}
+		}	
+	}
+	printState();
 }
 
 /*************************************************************/
@@ -213,6 +238,7 @@ int main(int argc, char *argv[]) {
 	case 2: hillClimbing();       break;
 	case 3: simulatedAnnealing(); break;
 	}
+	printf("evaluation: %d",evaluateState());
 
 	return 0;
 }
