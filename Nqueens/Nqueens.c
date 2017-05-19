@@ -180,7 +180,6 @@ void randomSearch() {
 void hillClimbing() {
 	int min=evaluateState();
 	int x,y,z,change;
-	memcpy(current,queens,nqueens);
 	while(change!=0){
 		change=0;
 		for(int i=0;i<nqueens;i++){
@@ -188,10 +187,7 @@ void hillClimbing() {
 				if(canMoveTo(i,j)){
 					z=queens[i];
 					queens[i]=j;
-					if(evaluateState<min){
-						memcpy(queens,current,nqueens);
-			}
-					else{
+					if(evaluateState()>min){
 						change++;
 						min=evaluateState();
 						x=i;
@@ -200,6 +196,9 @@ void hillClimbing() {
 					queens[i]=z;
 				}	
 			}
+		}
+		if(change!=0){
+			queens[x]=y;
 		}	
 	}
 	printState();
