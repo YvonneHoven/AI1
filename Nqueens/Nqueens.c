@@ -179,7 +179,12 @@ void randomSearch() {
 
 void hillClimbing() {
 	int min=evaluateState();
-	int x,y,z,change=1, i, j;
+	int x,y,z,change=1, i, j, k=1;
+	if (countConflicts()==0){
+	  printf ("Final state is");
+	  printState();
+	  return;
+	} 
 	while(change!=0){
 		change=0;
 		for(i=0;i<nqueens;i++){
@@ -201,8 +206,8 @@ void hillClimbing() {
 			queens[x]=y;
 		}	
 	}
-	printf ("Final state is");
-	printState();
+	initiateQueens(k);
+	hillClimbing(); 
 }
 
 /*************************************************************/
