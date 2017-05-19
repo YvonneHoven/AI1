@@ -179,7 +179,7 @@ void randomSearch() {
 
 void hillClimbing() {
 	int min=evaluateState();
-	int x,y,z,change;
+	int x,y,z,change=1;
 	while(change!=0){
 		change=0;
 		for(int i=0;i<nqueens;i++){
